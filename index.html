@@ -710,6 +710,26 @@ button.btn{appearance:none;-webkit-appearance:none}
         </div>
       </article>
 
+      <article class="project reveal">
+        <span class="project-num">_06</span>
+        <div>
+          <div class="project-top">
+            <h3 class="project-title">ClaimsAI Decision Engine</h3>
+            <a class="project-link" href="https://github.com/arnask11/ClaimsAI_Decision_Engine" target="_blank" rel="noopener">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <div class="project-details">
+            <p class="project-desc">A benchmarking system for AI-driven insurance claims triage: five competing routing architectures, from a hand-written rules engine to a tool-using orchestrator agent, evaluated head-to-head on 10,000 synthetic claims. Every system is scored on accuracy and a modeled dollar-loss-per-claim rather than accuracy alone, since a bad claims decision costs money and SLA breaches, not just a wrong label.</p>
+            <p class="project-desc">The winning agent chains six tools &mdash; policy retrieval, fraud scoring, severity assessment, field extraction, info requests, and human escalation &mdash; and deliberately withholds policy IDs from the tree model so coverage facts come from real lookups instead of memorization. XGBoost and isotonic-calibrated fraud scoring feed the router, and routing decisions run through a SimPy queue simulation, where a skill-based assignment policy cut SLA violations 50.6% versus FIFO. Final result: 89.9% routing accuracy at $262 modeled loss per claim, versus 55.1% and $1,205 for the rules baseline.</p>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span><span class="tech-tag">XGBoost</span><span class="tech-tag">SHAP</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Streamlit</span><span class="tech-tag">OR-Tools</span><span class="tech-tag">SimPy</span><span class="tech-tag">Docker</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
