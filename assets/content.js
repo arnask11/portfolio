@@ -212,8 +212,8 @@ window.PORTFOLIO = {
     {
       id: 'claimsai',
       featured: true,
-      kicker: 'ClaimsAI',
-      title: 'Claims Decision Engine',
+      kicker: 'AI decision systems',
+      title: 'ClaimsAI Decision Engine',
       summary: 'Benchmarks five claims-routing architectures, from a rules engine to a tool-calling orchestrator, on 10,000 synthetic insurance claims.',
       cardMetric: '10K claims · 89.9% routing accuracy',
       tags: ['Python', 'XGBoost', 'FastAPI', 'SimPy'],
@@ -570,52 +570,6 @@ window.PORTFOLIO = {
       stack: ['AWS Lambda', 'DynamoDB', 'S3', 'REST APIs']
     },
     {
-      id: 'paint-viz',
-      kicker: 'Interactive frontend',
-      title: 'Paint Visualizer',
-      summary: 'Lets a customer paint walls in a room photo to preview shades before buying, built around SM Paint Industries’ catalog.',
-      cardMetric: 'Brush, eraser, undo, before/after',
-      tags: ['React', 'JavaScript', 'Image processing'],
-      overview: [
-        'An in-browser room visualizer for trying paint shades on a photo before purchase.'
-      ],
-      sections: [
-        {
-          title: 'What I worked on',
-          bullets: [
-            'Brush and eraser tools with wall and region selection',
-            'Undo history and a before/after comparison',
-            'Shade visualization, recommended shades, and designer color combinations',
-            'Experimental work toward automatic wall detection and more realistic color rendering (not finished)'
-          ]
-        }
-      ],
-      stack: ['React', 'JavaScript', 'Canvas', 'Image processing']
-    },
-    {
-      id: 'sm-paint',
-      kicker: 'Full stack',
-      title: 'SM Paint Industries Platform',
-      summary: 'A full-stack product site for a paint manufacturer: catalog, shade presentation, and the visualizer.',
-      cardMetric: 'React + Express API + MongoDB',
-      tags: ['React', 'Express', 'MongoDB'],
-      overview: [
-        'A product website and digital catalog for a paint manufacturer.'
-      ],
-      sections: [
-        {
-          title: 'What I worked on',
-          bullets: [
-            'React frontend for the product catalog and shade presentation',
-            'Backend and API work with Express and MongoDB',
-            'Integration of the paint visualizer',
-            'Deployment experiments on Vercel and Render'
-          ]
-        }
-      ],
-      stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Vercel', 'Render']
-    },
-    {
       id: 'portfolio',
       kicker: 'This site',
       title: 'Portfolio',
@@ -647,7 +601,7 @@ window.PORTFOLIO = {
     { group: 'Languages', items: [
       { n: 'Python', icon: 'python', core: true, used: ['pieline', 'meta', 'claimsai', 'toolbench', 'outreach-agent', 'mcp', 'data-platform', 'toolkit-research'] },
       { n: 'TypeScript', icon: 'typescript', core: true, used: ['pieline', 'hap', 'voice'] },
-      { n: 'JavaScript', icon: 'javascript', used: ['opentable', 'paint-viz', 'sm-paint', 'portfolio'] },
+      { n: 'JavaScript', icon: 'javascript', used: ['opentable', 'portfolio'] },
       { n: 'SQL', used: ['pieline', 'meta'] },
       { n: 'C++', icon: 'cplusplus', note: 'Coursework.' },
       { n: 'Java', note: 'Coursework.' },
@@ -681,13 +635,13 @@ window.PORTFOLIO = {
       { n: 'PCA / KMeans / DBSCAN', used: ['meta'] }
     ]},
     { group: 'Frontend', items: [
-      { n: 'React', icon: 'react', core: true, used: ['hap', 'paint-viz', 'sm-paint'] },
+      { n: 'React', icon: 'react', core: true, used: ['hap'] },
       { n: 'Next.js', icon: 'nextdotjs', core: true, used: ['pieline', 'voice'] }
     ]},
     { group: 'Backend / APIs', items: [
       { n: 'FastAPI', icon: 'fastapi', core: true, used: ['hap', 'claimsai'] },
-      { n: 'Node.js', icon: 'nodedotjs', used: ['voice', 'opentable', 'sm-paint'] },
-      { n: 'Express', icon: 'express', used: ['opentable', 'sm-paint'] },
+      { n: 'Node.js', icon: 'nodedotjs', used: ['voice', 'opentable'] },
+      { n: 'Express', icon: 'express', used: ['opentable'] },
       { n: 'GraphQL', icon: 'graphql', used: ['pieline'] },
       { n: 'OAuth2 / Gmail API', used: ['outreach-agent'] }
     ]},
@@ -698,7 +652,6 @@ window.PORTFOLIO = {
       { n: 'Delta Lake', used: ['data-platform'] },
       { n: 'dbt', icon: 'dbt', used: ['data-platform'] },
       { n: 'DuckDB', icon: 'duckdb', used: ['data-platform'] },
-      { n: 'MongoDB', icon: 'mongodb', used: ['sm-paint'] },
       { n: 'DynamoDB', used: ['lost-found'] },
       { n: 'Great Expectations', used: ['data-platform'] },
       { n: 'Pydantic', icon: 'pydantic', used: ['data-platform'] }
@@ -720,7 +673,7 @@ window.PORTFOLIO = {
       { n: 'Vitest', icon: 'vitest', used: ['pieline', 'opentable'] },
       { n: 'Postman', icon: 'postman', used: ['indoqubix'] },
       { n: 'Streamlit', icon: 'streamlit', used: ['claimsai', 'data-platform'] },
-      { n: 'Vercel / Render', used: ['sm-paint'] }
+      { n: 'Vercel / Render', note: 'Deployment for earlier web projects.' }
     ]}
   ],
 
