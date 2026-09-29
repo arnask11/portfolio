@@ -730,6 +730,26 @@ button.btn{appearance:none;-webkit-appearance:none}
         </div>
       </article>
 
+      <article class="project reveal">
+        <span class="project-num">_07</span>
+        <div>
+          <div class="project-top">
+            <h3 class="project-title">Claims AI Data Platform</h3>
+            <a class="project-link" href="https://github.com/arnask11/claims-ai-data-platform" target="_blank" rel="noopener">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <div class="project-details">
+            <p class="project-desc">The data layer behind the ClaimsAI Decision Engine. A medallion lakehouse that takes raw insurance claims from three sources (batch CSVs, a JSON event stream, and 1,705 notes, emails, and PDFs) and turns them into tested gold tables and embeddings the engine can train and retrieve on. Bronze is append-only Delta with schema evolution, silver dedupes to one row per claim, hashes PII, and quarantines bad rows with a reason, and gold is built in dbt.</p>
+            <p class="project-desc">A quality gate sits between silver and gold: if a critical check fails, like a duplicate claim ID, raw PII on silver, or a loss date after the report date, the run stops before anything downstream is built. Features are point in time, so a claim's prior-claim count and regional amount z-score only use claims reported before it. A gold contract lists exactly which columns the model may train on, and region, age band, and the fraud label stay off it. The data is synthetic and seeded, so the checks prove the pipeline behaves correctly rather than measuring accuracy on real adjuster documents.</p>
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">PySpark</span><span class="tech-tag">Delta Lake</span><span class="tech-tag">dbt</span><span class="tech-tag">DuckDB</span><span class="tech-tag">Great Expectations</span><span class="tech-tag">Pydantic</span><span class="tech-tag">LangChain</span><span class="tech-tag">Streamlit</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
