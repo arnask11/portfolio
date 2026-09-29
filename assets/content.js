@@ -161,7 +161,7 @@ window.PORTFOLIO = {
     },
     {
       id: 'msu-cse',
-      org: 'MSU Computer Science',
+      org: 'MSU Computer Science ULA',
       role: 'Undergraduate Learning Assistant',
       dates: 'Sep 2023 - May 2025',
       summary: 'Taught Python and data structures to 150+ students in labs and office hours.',
@@ -547,134 +547,14 @@ window.PORTFOLIO = {
       ],
       stack: ['Python', 'Standard library only', 'HTML']
     },
-    {
-      id: 'lost-found',
-      kicker: 'Serverless',
-      title: 'Serverless Lost & Found',
-      summary: 'A lost-and-found app built entirely on managed AWS services, with direct-to-S3 image uploads.',
-      cardMetric: 'Presigned S3 uploads · no servers to run',
-      tags: ['AWS Lambda', 'DynamoDB', 'S3'],
-      overview: [
-        'An app for reporting and managing lost-and-found items with no persistent application servers.'
-      ],
-      sections: [
-        {
-          title: 'Engineering details',
-          bullets: [
-            'AWS Lambda for backend logic behind REST endpoints',
-            'DynamoDB for item records',
-            'S3 for images, uploaded straight from the client using presigned PUT URLs so image bytes never pass through a Lambda'
-          ]
-        }
-      ],
-      stack: ['AWS Lambda', 'DynamoDB', 'S3', 'REST APIs']
-    },
-    {
-      id: 'portfolio',
-      kicker: 'This site',
-      title: 'Portfolio',
-      summary: 'This site: a data-driven single page with progressive disclosure, keyboard-accessible case studies, and GitHub Pages deployment.',
-      cardMetric: 'No framework · content in one data file',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      github: 'https://github.com/arnask11/portfolio',
-      overview: [
-        'Every card and case study on this page renders from one content file, so adding a project means adding an object rather than copying markup.'
-      ],
-      sections: [
-        {
-          title: 'Details',
-          bullets: [
-            'Case studies open in a drawer with their own URL, so the back button and shared links work',
-            'Escape to close, focus moves into the drawer and returns to the card that opened it',
-            'Respects prefers-reduced-motion',
-            'Deployed on GitHub Pages'
-          ]
-        }
-      ],
-      stack: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'GitHub Pages']
-    }
   ],
 
-  /* ------------------------------------------------------------------ */
-  /* core: shown by default. icon: simpleicons slug (only for real logos). used: where it was used (ids above). */
-  stack: [
-    { group: 'Languages', items: [
-      { n: 'Python', icon: 'python', core: true, used: ['pieline', 'meta', 'claimsai', 'toolbench', 'outreach-agent', 'mcp', 'data-platform', 'toolkit-research'] },
-      { n: 'TypeScript', icon: 'typescript', core: true, used: ['pieline', 'hap', 'voice'] },
-      { n: 'JavaScript', icon: 'javascript', used: ['opentable', 'portfolio'] },
-      { n: 'SQL', used: ['pieline', 'meta'] },
-      { n: 'C++', icon: 'cplusplus', note: 'Coursework.' },
-      { n: 'Java', note: 'Coursework.' },
-      { n: 'HTML / CSS', used: ['portfolio', 'toolkit-research'] }
-    ]},
-    { group: 'AI / LLM', items: [
-      { n: 'OpenAI', icon: 'openai', core: true, used: ['hap', 'toolbench', 'pieline', 'voice'] },
-      { n: 'Anthropic', icon: 'anthropic', core: true, used: ['toolbench', 'outreach-agent', 'mcp'] },
-      { n: 'MCP', core: true, used: ['mcp'] },
-      { n: 'FastMCP', used: ['mcp'] },
-      { n: 'LangChain', icon: 'langchain', used: ['data-platform'] },
-      { n: 'Tool calling', used: ['toolbench', 'claimsai', 'voice', 'mcp', 'opentable'] },
-      { n: 'LLM evaluation', used: ['toolbench'] },
-      { n: 'Embeddings', used: ['meta', 'data-platform'] },
-      { n: 'Retrieval / RAG', used: ['claimsai', 'data-platform', 'hap', 'pieline'] },
-      { n: 'Pinecone', used: ['hap'] }
-    ]},
-    { group: 'Voice AI', items: [
-      { n: 'LiveKit', core: true, used: ['voice'] },
-      { n: 'ElevenLabs', icon: 'elevenlabs', core: true, used: [], note: 'Worked with outside the projects listed here.' },
-      { n: 'Deepgram', used: ['voice'] },
-      { n: 'Cartesia', used: ['voice'] },
-      { n: 'Vapi', used: ['opentable'] }
-    ]},
-    { group: 'Machine learning', items: [
-      { n: 'scikit-learn', icon: 'scikitlearn', core: true, used: ['meta', 'claimsai'] },
-      { n: 'XGBoost', used: ['claimsai'] },
-      { n: 'SHAP', used: ['claimsai'] },
-      { n: 'Pandas', icon: 'pandas', used: ['meta', 'data-platform'] },
-      { n: 'NumPy', icon: 'numpy', used: ['data-platform'] },
-      { n: 'PCA / KMeans / DBSCAN', used: ['meta'] }
-    ]},
-    { group: 'Frontend', items: [
-      { n: 'React', icon: 'react', core: true, used: ['hap'] },
-      { n: 'Next.js', icon: 'nextdotjs', core: true, used: ['pieline', 'voice'] }
-    ]},
-    { group: 'Backend / APIs', items: [
-      { n: 'FastAPI', icon: 'fastapi', core: true, used: ['hap', 'claimsai'] },
-      { n: 'Node.js', icon: 'nodedotjs', used: ['voice', 'opentable'] },
-      { n: 'Express', icon: 'express', used: ['opentable'] },
-      { n: 'GraphQL', icon: 'graphql', used: ['pieline'] },
-      { n: 'OAuth2 / Gmail API', used: ['outreach-agent'] }
-    ]},
-    { group: 'Data', items: [
-      { n: 'PostgreSQL', icon: 'postgresql', core: true, used: ['hap', 'claimsai'] },
-      { n: 'Supabase', icon: 'supabase', core: true, used: ['pieline', 'voice', 'hap'] },
-      { n: 'PySpark', icon: 'apachespark', core: true, used: ['data-platform'] },
-      { n: 'Delta Lake', used: ['data-platform'] },
-      { n: 'dbt', icon: 'dbt', used: ['data-platform'] },
-      { n: 'DuckDB', icon: 'duckdb', used: ['data-platform'] },
-      { n: 'DynamoDB', used: ['lost-found'] },
-      { n: 'Great Expectations', used: ['data-platform'] },
-      { n: 'Pydantic', icon: 'pydantic', used: ['data-platform'] }
-    ]},
-    { group: 'Infrastructure', items: [
-      { n: 'AWS', core: true, used: ['lost-found'] },
-      { n: 'Docker', icon: 'docker', core: true, used: ['claimsai'] },
-      { n: 'RabbitMQ', icon: 'rabbitmq', used: ['hap'] },
-      { n: 'Celery', icon: 'celery', used: ['hap'] },
-      { n: 'Async job processing', used: ['hap'] },
-      { n: 'Browserbase / Playwright', used: ['pieline', 'opentable'] }
-    ]},
-    { group: 'Simulation / optimization', items: [
-      { n: 'SimPy', used: ['claimsai'] },
-      { n: 'OR-Tools', used: ['claimsai'] }
-    ]},
-    { group: 'Tooling', items: [
-      { n: 'Git / GitHub', icon: 'github', note: 'Every project here.' },
-      { n: 'Vitest', icon: 'vitest', used: ['pieline', 'opentable'] },
-      { n: 'Postman', icon: 'postman', used: ['indoqubix'] },
-      { n: 'Streamlit', icon: 'streamlit', used: ['claimsai', 'data-platform'] },
-      { n: 'Vercel / Render', note: 'Deployment for earlier web projects.' }
-    ]}
+  /* Stack marquee rows: [name, simpleicons slug, optional icon color]. No slug shows initials. */
+  marquee: [
+    [['Python','python'],['TypeScript','typescript'],['JavaScript','javascript'],['C++','cplusplus'],['React','react'],['Next.js','nextdotjs','e8e8e2'],['FastAPI','fastapi'],['Node.js','nodedotjs'],['PostgreSQL','postgresql'],['Supabase','supabase']],
+    [['Docker','docker'],['AWS','amazonwebservices','e8e8e2'],['OpenAI','openai','e8e8e2'],['Anthropic','anthropic','e8e8e2'],['MCP','modelcontextprotocol','e8e8e2'],['LangChain','langchain','e8e8e2'],['LiveKit','livekit','e8e8e2'],['ElevenLabs','elevenlabs','e8e8e2'],['RabbitMQ','rabbitmq'],['Celery','celery','e8e8e2'],['Flask','flask','e8e8e2']],
+    [['Pandas','pandas','e8e8e2'],['NumPy','numpy'],['scikit-learn','scikitlearn'],['XGBoost'],['PySpark','apachespark'],['dbt','dbt'],['DuckDB','duckdb'],['Pydantic','pydantic'],['Streamlit','streamlit'],['Playwright','playwright']],
+    [['Git','git'],['GitHub','github','e8e8e2'],['Tailwind','tailwindcss'],['Google Cloud','googlecloud'],['GraphQL','graphql'],['Express','express','e8e8e2'],['Postman','postman'],['Vitest','vitest']]
   ],
 
   claimsChart: [
