@@ -271,6 +271,53 @@ window.PORTFOLIO = {
       stack: ['Python', 'XGBoost', 'scikit-learn', 'SHAP', 'FastAPI', 'Streamlit', 'OR-Tools', 'SimPy', 'Docker', 'PostgreSQL']
     },
     {
+      id: 'data-platform',
+      featured: true,
+      kicker: 'Data engineering',
+      title: 'Claims AI Data Platform',
+      summary: 'A medallion lakehouse that turns batch, streaming, and unstructured claims data into tested, ML-safe gold tables and embeddings.',
+      cardMetric: '1,705 docs parsed · quality gate before gold',
+      tags: ['PySpark', 'Delta Lake', 'dbt', 'Great Expectations'],
+      github: 'https://github.com/arnask11/claims-ai-data-platform',
+      metrics: [
+        { v: '1,705', l: 'notes, emails, and PDFs parsed' },
+        { v: '6 / 6', l: 'planted bad rows quarantined' },
+        { v: '17.7%', l: 'documents that contradict the record' }
+      ],
+      overview: [
+        'The data layer behind the ClaimsAI Decision Engine. Claims arrive three ways: batch CSVs, a JSON event stream with corrections and a schema change partway through, and 1,705 notes, emails, and PDFs. The platform turns all of it into gold tables the engine can train on and chunks it can retrieve from.'
+      ],
+      sections: [
+        {
+          title: 'Lineage',
+          layers: [
+            { name: 'Bronze', items: ['Append-only Delta', 'Schema evolution', 'Raw PII kept only in a restricted table'] },
+            { name: 'Silver', items: ['One row per claim (MERGE on claim_id)', 'PII hashed', 'Bad rows quarantined with a reason', 'Document text parsed'] },
+            { name: 'Quality gate', items: ['Great Expectations', 'Critical failure stops the run'] },
+            { name: 'Gold', items: ['dbt models + tests', 'Point-in-time features', 'Chunks + embeddings'] }
+          ]
+        },
+        {
+          title: 'Engineering decisions',
+          bullets: [
+            'A critical check (duplicate claim ID, raw PII on silver, loss date after report date, missing policy) raises and stops the run before dbt or embeddings run.',
+            'Row-level problems do not stop the run. They go to quarantine with one reason each.',
+            'Features are point in time: a claim’s prior-claim count and regional amount z-score only use claims reported before it.',
+            'A gold contract lists the columns the model may train on. Region, age band, and the fraud label stay off it.'
+          ]
+        },
+        {
+          title: 'Tradeoffs',
+          bullets: [
+            'Auto Loader is Databricks-only, so the local runner uses a checksum checkpoint and Delta mergeSchema with the same column contract.',
+            'History features are self-joins: clear at 1,000 rows, the wrong plan at 100 million, where they become windows or daily snapshots.',
+            'Data is synthetic and seeded, so the checks show the pipeline behaves correctly, not accuracy on real adjuster documents.'
+          ]
+        }
+      ],
+      stack: ['PySpark', 'Delta Lake', 'dbt', 'DuckDB', 'Great Expectations', 'Pydantic', 'LangChain', 'Streamlit', 'Python']
+    },
+    {
       id: 'toolbench',
       featured: true,
       kicker: 'LLM evaluation',
@@ -350,9 +397,9 @@ window.PORTFOLIO = {
       stack: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'RabbitMQ', 'Celery', 'Pinecone', 'OpenAI', 'Synthesia', 'Supabase'],
       note: 'Built for a client, so the code is not public.'
     },
+    /* ---------- More systems ---------- */
     {
       id: 'outreach-agent',
-      featured: true,
       kicker: 'Agents',
       title: 'Autonomous Outreach Agent',
       summary: 'Finds research and startup contacts, drafts personalized emails into Gmail, and remembers everyone it has touched across runs.',
@@ -391,53 +438,6 @@ window.PORTFOLIO = {
       stack: ['Python', 'Anthropic API', 'Claude Haiku', 'Claude Sonnet', 'Gmail API', 'OAuth2', 'openpyxl']
     },
 
-    /* ---------- More systems ---------- */
-    {
-      id: 'data-platform',
-      kicker: 'Data engineering',
-      title: 'Claims AI Data Platform',
-      summary: 'A medallion lakehouse that turns batch, streaming, and unstructured claims data into tested, ML-safe gold tables and embeddings.',
-      cardMetric: '1,705 docs parsed · quality gate before gold',
-      tags: ['PySpark', 'Delta Lake', 'dbt', 'Great Expectations'],
-      github: 'https://github.com/arnask11/claims-ai-data-platform',
-      metrics: [
-        { v: '1,705', l: 'notes, emails, and PDFs parsed' },
-        { v: '6 / 6', l: 'planted bad rows quarantined' },
-        { v: '17.7%', l: 'documents that contradict the record' }
-      ],
-      overview: [
-        'The data layer behind the ClaimsAI Decision Engine. Claims arrive three ways: batch CSVs, a JSON event stream with corrections and a schema change partway through, and 1,705 notes, emails, and PDFs. The platform turns all of it into gold tables the engine can train on and chunks it can retrieve from.'
-      ],
-      sections: [
-        {
-          title: 'Lineage',
-          layers: [
-            { name: 'Bronze', items: ['Append-only Delta', 'Schema evolution', 'Raw PII kept only in a restricted table'] },
-            { name: 'Silver', items: ['One row per claim (MERGE on claim_id)', 'PII hashed', 'Bad rows quarantined with a reason', 'Document text parsed'] },
-            { name: 'Quality gate', items: ['Great Expectations', 'Critical failure stops the run'] },
-            { name: 'Gold', items: ['dbt models + tests', 'Point-in-time features', 'Chunks + embeddings'] }
-          ]
-        },
-        {
-          title: 'Engineering decisions',
-          bullets: [
-            'A critical check (duplicate claim ID, raw PII on silver, loss date after report date, missing policy) raises and stops the run before dbt or embeddings run.',
-            'Row-level problems do not stop the run. They go to quarantine with one reason each.',
-            'Features are point in time: a claim’s prior-claim count and regional amount z-score only use claims reported before it.',
-            'A gold contract lists the columns the model may train on. Region, age band, and the fraud label stay off it.'
-          ]
-        },
-        {
-          title: 'Tradeoffs',
-          bullets: [
-            'Auto Loader is Databricks-only, so the local runner uses a checksum checkpoint and Delta mergeSchema with the same column contract.',
-            'History features are self-joins: clear at 1,000 rows, the wrong plan at 100 million, where they become windows or daily snapshots.',
-            'Data is synthetic and seeded, so the checks show the pipeline behaves correctly, not accuracy on real adjuster documents.'
-          ]
-        }
-      ],
-      stack: ['PySpark', 'Delta Lake', 'dbt', 'DuckDB', 'Great Expectations', 'Pydantic', 'LangChain', 'Streamlit', 'Python']
-    },
     {
       id: 'mcp',
       kicker: 'MCP',
